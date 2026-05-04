@@ -47,8 +47,6 @@ ENV PATH="${DENO_INSTALL}/bin:${PATH}"
 ENV HOME="/home/app"
 
 COPY --from=builder --chown=app:app /app/main /usr/local/bin/app
-
-# Wildcard ke saath - agar file na ho toh skip karo
 COPY --from=builder --chown=app:app /app/libtdjson.so* /home/app/
 
 RUN chown -R app:app /opt/deno
